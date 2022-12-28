@@ -14,7 +14,7 @@ export class SlotService {
     private readonly workingHourService?: WorkingHoursService,
   ) {}
 
-  async getAllSlots(eventId: number): Promise<any> {
+  async getAllSlots(eventId: number): Promise<EventSlotsDTO> {
     const configuration = await this.configurationService.findAllWithRelations(
       eventId,
     );
