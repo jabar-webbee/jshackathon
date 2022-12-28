@@ -15,22 +15,28 @@ export class SlotService {
   ) {}
 
   async getAllSlots(eventId: number): Promise<any> {
-    let slots;
-    const configurations = await this.configurationService.findAllWithRelations(
+    const configuration = await this.configurationService.findAllWithRelations(
       eventId,
     );
-    await Promise.all(
-      configurations.map(async (configuration) => {
-        slots = {
-          event: {
-            eventType: configuration.eventType,
-            eventId: configuration.id,
-          },
-          slots: await this.makeSlots(configuration),
-        };
-      }),
-    );
-    return slots;
+    return {
+      event: {
+        eventType: configuration.eventType,
+        eventId: configuration.id,
+      },
+      slots: await this.makeSlots(configuration),
+    };
+    // await Promise.all(
+    //   configurations.map(async (configuration) => {
+    //     slots = {
+    //       event: {
+    //         eventType: configuration.eventType,
+    //         eventId: configuration.id,
+    //       },
+    //       slots: await this.makeSlots(configuration),
+    //     };
+    //   }),
+    // );
+    // return slots;
   }
   async makeSlots(configuration: Configuration) {
     let daysAdded = 0;

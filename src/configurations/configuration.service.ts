@@ -11,7 +11,7 @@ export class ConfigurationService {
   ) {}
 
   findAllWithRelations(eventId: number) {
-    return this.configurationRepository.find({
+    return this.configurationRepository.findOne({
       where: {
         id: eventId,
       },
