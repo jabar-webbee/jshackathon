@@ -28,5 +28,5 @@ export class WorkingHour {
   createdAt: string;
 
   @ManyToOne(() => Configuration, (configuration) => configuration.workingHours)
-  configuration: Configuration;
+  configuration?: Configuration;
 }

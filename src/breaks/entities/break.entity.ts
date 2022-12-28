@@ -32,8 +32,8 @@ export class Break {
 
   @OneToOne(() => BreakType)
   @JoinColumn()
-  breakType: BreakType;
+  breakType?: BreakType;
 
   @ManyToOne(() => Configuration, (configuration) => configuration.breaks)
-  configuration: Configuration;
+  configuration?: Configuration;
 }

@@ -8,7 +8,7 @@ import { WorkingHour } from './entities/working_hour.entity';
 @Injectable()
 export class WorkingHoursService {
   constructor(
-    private readonly breakService: BreaksService,
+    readonly breakService: BreaksService,
     private readonly appointmentService: AppointmentsService,
   ) {}
 

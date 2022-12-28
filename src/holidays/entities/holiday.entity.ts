@@ -28,5 +28,5 @@ export class Holiday {
   createdAt: string;
 
   @ManyToOne(() => Configuration, (configuration) => configuration.holidays)
-  configuration: Configuration;
+  configuration?: Configuration;
 }

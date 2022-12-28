@@ -27,9 +27,9 @@ export class AppointmentsService {
     });
   }
 
-  async book(@Body() createAppointmentDTO: BookAppointmentDTO) {
+  async book(@Body() bookAppointmentDTO: BookAppointmentDTO) {
     const response = {};
-    const { eventId, appointments } = createAppointmentDTO;
+    const { eventId, appointments } = bookAppointmentDTO;
     const allSlots = await this.getAllSlots(+eventId);
     const createAppointmentPromises = appointments.map(async (appointment) => {
       const { email, firstName, lastName, appointmentAt } = appointment;
@@ -43,7 +43,7 @@ export class AppointmentsService {
             lastName,
           });
         }
-        return this.create({
+        this.create({
           userId: user.id,
           configurationId: +eventId,
           appointmentAt: +format(parseISO(appointmentAt), 't'),

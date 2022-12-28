@@ -25,18 +25,6 @@ export class SlotService {
       },
       slots: await this.makeSlots(configuration),
     };
-    // await Promise.all(
-    //   configurations.map(async (configuration) => {
-    //     slots = {
-    //       event: {
-    //         eventType: configuration.eventType,
-    //         eventId: configuration.id,
-    //       },
-    //       slots: await this.makeSlots(configuration),
-    //     };
-    //   }),
-    // );
-    // return slots;
   }
   async makeSlots(configuration: Configuration) {
     let daysAdded = 0;
