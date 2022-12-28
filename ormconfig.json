@@ -1,0 +1,8 @@
+{
+  "type": "sqlite",
+  "database": "jshackathon.db",
+  "synchronize": false,
+  "entities": [
+    "src/**/entities/**.entity{.ts,.js}"
+  ]
+}
